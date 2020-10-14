@@ -4,6 +4,37 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+      <div class="panel panel-default items">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th colspan="2">Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each_with_index do |product, index| %>
+            <%= render 'product', product: product, quantity: @line_items[index].quantity.to_i %>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="4">
+              TOTAL:
+            </th>
+            <th> 
+              <% total = @line_items.reduce(0) do |sum, item| %>
+                <% sum + item.total_price_cents %>
+              <% end %>
+              <%= humanized_money_with_symbol total / 100.0 %>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
@@ -11,3 +42,6 @@
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
+
+<%= @line_items.inspect %><br>
+<%= @products.inspect %>
