@@ -1,7 +1,8 @@
   <% if enhanced_cart.count.zero? %>
     <p class="alert alert-info">
-      Please add items to your cart before proceeding.
+      Please add items to your cart before proceeding.<br>
     </p>
+    <button type="button" class="btn btn-link"><%= link_to 'Home', products_path %></button>
   <% else %>
   <section class="cart-show">
 
