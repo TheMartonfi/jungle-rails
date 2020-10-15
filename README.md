@@ -13,6 +13,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 7. Put Stripe (test) keys into appropriate .env vars
 8. Run `bin/rails s -b 0.0.0.0` to start the server
 9. Make controller `rails generate controller About show`
+10. Make migration `rails generate migration migration_name`
 
 ## Stripe Testing
 
