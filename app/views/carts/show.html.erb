@@ -2,7 +2,7 @@
     <p class="alert alert-info">
       Please add items to your cart before proceeding.
     </p>
-    <button type="button" class="btn btn-link"><%= link_to 'Home Page', products_path %></button>
+    <%= link_to 'Home Page', products_path, class: "btn btn-link" %>
   <% else %>
   <section class="cart-show">
 
