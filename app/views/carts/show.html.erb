@@ -1,8 +1,8 @@
   <% if enhanced_cart.count.zero? %>
-    <p class="alert alert-info">
+    <h3 class="alert alert-info">
       Please add items to your cart before proceeding.
-    </p>
-    <%= link_to 'Home Page', products_path, class: "btn btn-link" %>
+    </h3>
+    <%= link_to 'Continue Shopping', root_path, class: 'btn btn-lg btn-primary' %>
   <% else %>
   <section class="cart-show">
 
