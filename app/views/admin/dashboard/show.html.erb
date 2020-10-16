@@ -4,27 +4,31 @@
     <h1>Admin &raquo; Dashboard</h1>
   </header>
 
-  <table class="table">
-  <thead>
-    <tr class="bg-primary">
-    <th scope="col">Name</th>
-      <th scope="col">Count</th>
-      <th scope="col">Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="bg-info">
-      <th scope="row">Products</th>
-      <td><%= @product_count %></td>
-      <td><%= link_to "List", admin_products_path %></td>
-    </tr>
-    <tr class="bg-info">
-      <th scope="row">Categories</th>
-      <td><%= @category_count %></td>
-      <td><%= link_to "List", admin_categories_path %></td>
-    </tr>
-  </tbody>
-</table>
+  <div class="panel panel-default products">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="col-sm-6">Name</th>
+          <th class="col-sm-6">Count</th>
+          <th class="col-sm-1"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Product</td>
+          <td><%= @product_count %></td>
+          <td><%= link_to fa_icon('list'), [:admin, :products], class: 'btn btn-sm btn-info' %></td>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <td><%= @category_count %></td>
+          <td><%= link_to fa_icon('list'), [:admin, :categories], class: 'btn btn-sm btn-info' %></td>
+        </tr>
+      </tbody>
+    </table> 
+
+  </div>
 
 </section>
 

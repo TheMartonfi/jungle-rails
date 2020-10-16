@@ -13,15 +13,15 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th colspan="2">Category</th>
+          <th class="col-sm-12">Category</th>
+          <th class="col-sm-1"></th>
         </tr>
       </thead>
       <tbody>
         <% @categories.each do |category| %>
           <tr>
-            <td>
-              <%= category.name %>
-            </td>
+            <td><%= category.name %></td>
+            <td><%= link_to fa_icon('link'), [:category, :id => category.id], class: 'btn btn-sm btn-info' %></td>
           </tr>
         <% end %>
       </tbody>
