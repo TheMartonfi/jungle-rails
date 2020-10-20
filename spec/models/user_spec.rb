@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
       expect(@user.save).to be false
     end
 
-    it "should not create user when email is not unique regardless of case sensitivity" do
+    it "should not create user when email (case insensitive) is not unique" do
       user_params = { first_name: "Timmy", last_name: "Taco", email: "TiMMy@tacO.com", password: "12345678", password_confirmation: "12345678" }
       @user = User.new(user_params)
       @user.save
@@ -58,15 +58,31 @@ RSpec.describe User, type: :model do
   end
 
   describe '.authenticate_with_credentials' do
-    it "should return a user hash if email and password are correct" do
+    it "should return a user hash if email (case insensitive) and password are correct" do
       user_params = { first_name: "Timmy", last_name: "Taco", email: "timmy@taco.com", password: "12345678", password_confirmation: "12345678" }
       @user = User.new(user_params)
       @user.save
 
-      expect(User.authenticate_with_credentials("timmy@taco.com", "12345678").class).to be User
+      expect(User.authenticate_with_credentials("TiMmy@tAcO.com", "12345678").class).to be User
     end
 
-    it "should return nil if email and password are incorrect" do
+    it "should return a user hash if email (ignoring whitespace) and password are correct" do
+      user_params = { first_name: "Timmy", last_name: "Taco", email: "timmy@taco.com", password: "12345678", password_confirmation: "12345678" }
+      @user = User.new(user_params)
+      @user.save
+
+      expect(User.authenticate_with_credentials("  timmy@taco.com  ", "12345678").class).to be User
+    end
+
+    it "should return nil if email is incorrect" do
+      user_params = { first_name: "Timmy", last_name: "Taco", email: "timmy@taco.com", password: "12345678", password_confirmation: "12345678" }
+      @user = User.new(user_params)
+      @user.save
+
+      expect(User.authenticate_with_credentials("timmy@taco.co", "12345678")).to be nil
+    end
+
+    it "should return nil if password is incorrect" do
       user_params = { first_name: "Timmy", last_name: "Taco", email: "timmy@taco.com", password: "12345678", password_confirmation: "12345678" }
       @user = User.new(user_params)
       @user.save
