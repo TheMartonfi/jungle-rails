@@ -56,4 +56,22 @@ RSpec.describe User, type: :model do
       expect(@user.save).to be false
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    it "should return a user hash if email and password are correct" do
+      user_params = { first_name: "Timmy", last_name: "Taco", email: "timmy@taco.com", password: "12345678", password_confirmation: "12345678" }
+      @user = User.new(user_params)
+      @user.save
+
+      expect(User.authenticate_with_credentials("timmy@taco.com", "12345678").class).to be User
+    end
+
+    it "should return nil if email and password are incorrect" do
+      user_params = { first_name: "Timmy", last_name: "Taco", email: "timmy@taco.com", password: "12345678", password_confirmation: "12345678" }
+      @user = User.new(user_params)
+      @user.save
+
+      expect(User.authenticate_with_credentials("timmy@taco.com", "1234567")).to be nil
+    end
+  end
 end
