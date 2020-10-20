@@ -31,7 +31,8 @@ RSpec.describe Product, type: :model do
     end
 
     it "has 'Category can't be blank' error when category is nil" do
-      @product = Product.create(id: 1, name: "Box", price_cents: 10000, quantity: 10, category_id: nil)
+      @category = nil
+      @product = Product.create(id: 1, name: "Box", price_cents: 10000, quantity: 10, category_id: 1)
 
       expect(@product.errors.full_messages.include?("Category can't be blank")).to be true
     end
