@@ -22,7 +22,7 @@ A mini e-commerce application built with Rails 4.2.
 
 ## Screenshots
 
-!['Home'](https://github.com/TheMartonfi/scheduler/blob/master/docs/home.png?raw=true)
-!['Book interview'](https://github.com/TheMartonfi/scheduler/blob/master/docs/book-interview.png?raw=true)
-!['Booked interview'](https://github.com/TheMartonfi/scheduler/blob/master/docs/booked-interview.png?raw=true)
-!['Delete'](https://github.com/TheMartonfi/scheduler/blob/master/docs/delete.png)
+!['Home'](https://github.com/TheMartonfi/jungle-rails/blob/master/docs/home.png?raw=true)
+!['Category'](https://github.com/TheMartonfi/jungle-rails/blob/master/docs/category.png?raw=true)
+!['Admin Products'](https://github.com/TheMartonfi/jungle-rails/blob/master/docs/admin-products.png?raw=true)
+!['My Cart'](https://github.com/TheMartonfi/jungle-rails/blob/master/docs/cart.png?raw=true)
