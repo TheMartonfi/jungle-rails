@@ -1,6 +1,12 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2.
+
+## Dependencies
+
+- Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+- PostgreSQL 9.x
+- Stripe
 
 ## Setup
 
@@ -11,22 +17,12 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 5. Create .env file based on .env.example
 6. Sign up for a Stripe account
 7. Put Stripe (test) keys into appropriate .env vars
-8. Run `bin/rails s -b 0.0.0.0` to start the server
-9. Make controller `rails generate controller About show`
-10. Make migration `rails generate migration migration_name`
-11. test command `bin/rspec`
+8. Run `bin/rails s` to start the server
+9. Go to <http://localhost:3000/> in your browser.
 
-## Stripe Testing
+## Screenshots
 
-Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
-
-More information in their docs: <https://stripe.com/docs/testing#cards>
-
-## Dependencies
-
-- Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
-- PostgreSQL 9.x
-- Stripe
-
-<!-- BUG: You can purchase more items than there is in stock -->
-<!-- BUG: Quantities are not updated when purchasing a product -->
+!['Home'](https://github.com/TheMartonfi/scheduler/blob/master/docs/home.png?raw=true)
+!['Book interview'](https://github.com/TheMartonfi/scheduler/blob/master/docs/book-interview.png?raw=true)
+!['Booked interview'](https://github.com/TheMartonfi/scheduler/blob/master/docs/booked-interview.png?raw=true)
+!['Delete'](https://github.com/TheMartonfi/scheduler/blob/master/docs/delete.png)
